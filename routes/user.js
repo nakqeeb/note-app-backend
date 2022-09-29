@@ -26,7 +26,6 @@ router.post(
         });
       }
       const user = new User({
-        name: req.body.name,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 12),
       });
@@ -77,7 +76,6 @@ router.post("/login", (req, res, next) => {
         token: token,
         expiresIn: 43800,
         userId: fetchedUser._id,
-        username: fetchedUser.name
       });
     })
     .catch((err) => {
